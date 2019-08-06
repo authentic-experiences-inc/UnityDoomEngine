@@ -11,6 +11,14 @@ jobs:
       - checkout
       - run: openssl aes-256-cbc -d -in .circleci/Unity_v2019.x.ulf-cipher -k ${CIPHER_KEY} >> .circleci/Unity_v2019.x.ulf
       - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .circleci/Unity_v2019.x.ulf || exit 0
+
+      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -noUpm -logFile -projectPath . -buildWindows64Player ./bin-win64/UnityDoomEngine.exe
+      - run: apt-get update
+      - run: apt-get install zip -y
+      - run: zip -r UnityDoomEngine-Win64.zip ./bin-win64
+      - store_artifacts:
+          path: ./UnityDoomEngine-Win64.zip
+          destination: ./UnityDoomEngine-Win64.zip
 workflows:
   version: 2
   build:
