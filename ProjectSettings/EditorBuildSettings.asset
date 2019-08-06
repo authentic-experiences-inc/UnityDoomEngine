@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/DoomLoader/main_scene.unity
+    path: Assets/UnityDoomEngine/main_scene.unity
     guid: bf58d71d7731df34b985b6d4592cf5b6
   m_configObjects: {}
